@@ -1,6 +1,6 @@
 import { BALANCE_ROUTER, BASE_ENDPOINT } from "src/shared/constants";
 import { GetTotalValueParams } from "src/shared/types/api/params/balance";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
 
 export async function get_total_value({
   address,
@@ -20,11 +20,11 @@ export async function get_total_value({
       }
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {

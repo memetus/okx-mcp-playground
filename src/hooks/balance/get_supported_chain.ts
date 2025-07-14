@@ -1,5 +1,5 @@
 import { BALANCE_ROUTER, BASE_ENDPOINT } from "src/shared/constants";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
 
 export async function get_supported_chain() {
   try {
@@ -8,11 +8,11 @@ export async function get_supported_chain() {
       BALANCE_ROUTER.GET_TOTAL_VALUE
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {

@@ -1,6 +1,6 @@
 import { BASE_ENDPOINT, TRANSACTION_ROUTER } from "src/shared/constants";
 import { GetHitoryByAddressParams } from "src/shared/types/api/params/transaction";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
 
 export async function get_history_by_address({
   address,
@@ -26,11 +26,11 @@ export async function get_history_by_address({
       }
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {

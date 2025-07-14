@@ -1,6 +1,6 @@
 import { BASE_ENDPOINT, TRADE_ROUTER } from "src/shared/constants";
 import { ApproveTransactionsParams } from "src/shared/types/api/params/trade";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
 
 export async function approve_transactions({
   chainIndex,
@@ -20,11 +20,11 @@ export async function approve_transactions({
       }
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {

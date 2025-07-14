@@ -1,6 +1,6 @@
 import { BALANCE_ROUTER, BASE_ENDPOINT } from "src/shared/constants";
 import { GetSpecificTokenBalanceParams } from "src/shared/types/api/params/balance";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
 
 export async function get_specific_token_balance({
   chainIndex,
@@ -15,11 +15,11 @@ export async function get_specific_token_balance({
       BALANCE_ROUTER.GET_SPECIFIC_TOKEN_BALANCE
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify({
         chainIndex,
         tokenContractAddress,

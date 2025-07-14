@@ -1,6 +1,6 @@
 import { BASE_ENDPOINT, INDEX_ROUTER } from "src/shared/constants";
 import { GetHistoryicalIndexPriceParams } from "src/shared/types/api/params";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
 
 export async function get_historical_index_price({
   chainIndex,
@@ -26,11 +26,11 @@ export async function get_historical_index_price({
       }
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {

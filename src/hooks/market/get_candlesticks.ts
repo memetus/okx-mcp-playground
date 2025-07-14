@@ -1,6 +1,6 @@
 import { BASE_ENDPOINT, MARKET_ROUTER } from "src/shared/constants";
 import { GetCandleSticksParams } from "src/shared/types/api/params/market";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
 
 export async function get_candlesticks({
   chainIndex,
@@ -24,11 +24,11 @@ export async function get_candlesticks({
       }
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {

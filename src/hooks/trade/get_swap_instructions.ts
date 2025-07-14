@@ -1,6 +1,6 @@
 import { BASE_ENDPOINT, TRADE_ROUTER } from "src/shared/constants";
 import { GetSwapInstructionsParams } from "src/shared/types/api/params/trade";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
 
 export async function get_swap_instructions({
   chainIndex,
@@ -50,11 +50,11 @@ export async function get_swap_instructions({
       }
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {
