@@ -27,7 +27,7 @@ export async function get_historical_index_price({
     );
 
     const response = await fetch(endpoint, {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },

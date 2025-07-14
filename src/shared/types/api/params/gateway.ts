@@ -29,3 +29,15 @@ export type GetTransactionOrdersParams = {
   cursor?: string;
   limit?: string;
 };
+
+export type SimulateTransactionParams = {
+  fromAddress: string;
+  toAddress: string;
+  chainIndex: string;
+  txAmount?: string;
+  extJson: {
+    inputData?: string;
+  };
+  priorityFee?: string;
+  gasPrice?: string;
+};

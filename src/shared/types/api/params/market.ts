@@ -31,3 +31,8 @@ export type GetCandlesticksHistoryParams = {
   bar?: string;
   limit?: number;
 };
+
+export type GetBatchTokenPriceParams = {
+  chainIndex: string;
+  tokenContractAddress: string;
+};
