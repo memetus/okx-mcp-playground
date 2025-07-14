@@ -1,3 +1,5 @@
+import { ENV } from "../env";
+
 export const joinEndpoint = (
   base: string,
   paths: string,
@@ -27,4 +29,14 @@ export const joinEndpoint = (
     return "";
   });
   return base + paths + (safeQuery.length > 0 ? "?" + safeQuery.join("&") : "");
+};
+
+export const generateHeaderKey = () => {
+  return {
+    "Content-Type": "application/json",
+    "OK-ACCESS-KEY": ENV.OKX_API_KEY,
+    "OK-ACCESS-SIGN": ENV.OKX_API_SECRET,
+    "OK-ACCESS-PASSPHRASE": ENV.OKX_PASSPHRASE,
+    "OK-ACCESS-TIMESTAMP": new Date().toISOString(),
+  };
 };
