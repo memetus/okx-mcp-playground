@@ -1,6 +1,11 @@
-import { BASE_ENDPOINT, TRADE_ROUTER } from "src/shared/constants";
-import { GetQuotesParams } from "src/shared/types/api/params/trade";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  TRADE_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetQuotesParams } from "../../shared/types/params/trade";
+import { GetQuotesResponse } from "../../shared/types/response/trade";
 
 export async function get_quotes({
   chainIndex,
@@ -13,7 +18,7 @@ export async function get_quotes({
   directRoute,
   priceImpactProtectionPercentage,
   feePercent,
-}: GetQuotesParams) {
+}: GetQuotesParams): Promise<GetQuotesResponse> {
   try {
     const endpoint = joinEndpoint(BASE_ENDPOINT, TRADE_ROUTER.GET_QUOTES, {
       chainIndex,

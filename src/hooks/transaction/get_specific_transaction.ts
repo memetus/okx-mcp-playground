@@ -1,12 +1,17 @@
-import { BASE_ENDPOINT, TRANSACTION_ROUTER } from "src/shared/constants";
-import { GetSpecificTransactionParams } from "src/shared/types/api/params/transaction";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  TRANSACTION_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetSpecificTransactionParams } from "../../shared/types/params/transaction";
+import { GetSpecificTransactionResponse } from "../../shared/types/response/transaction";
 
 export async function get_specific_transaction({
   chainIndex,
   txHash,
   type,
-}: GetSpecificTransactionParams) {
+}: GetSpecificTransactionParams): Promise<GetSpecificTransactionResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

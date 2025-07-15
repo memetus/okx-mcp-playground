@@ -1,5 +1,9 @@
-import { BASE_ENDPOINT, GATEWAY_ROUTER } from "src/shared/constants";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  GATEWAY_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
 
 export async function get_supported_chain() {
   try {
@@ -8,11 +12,11 @@ export async function get_supported_chain() {
       GATEWAY_ROUTER.GET_SUPPORTED_CHAIN
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {

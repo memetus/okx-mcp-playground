@@ -1,18 +1,25 @@
-import { BASE_ENDPOINT, GATEWAY_ROUTER } from "src/shared/constants";
-import { GetGasPriceParams } from "src/shared/types/api/params/gateway";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  GATEWAY_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetGasPriceParams } from "../../shared/types/params/gateway";
+import { GetGasPriceResponse } from "../../shared/types/response/gateway";
 
-export async function get_gas_price({ chainIndex }: GetGasPriceParams) {
+export async function get_gas_price({
+  chainIndex,
+}: GetGasPriceParams): Promise<GetGasPriceResponse> {
   try {
     const endopint = joinEndpoint(BASE_ENDPOINT, GATEWAY_ROUTER.GET_GAS_PRICE, {
       chainIndex,
     });
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endopint, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {

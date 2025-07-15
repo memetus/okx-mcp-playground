@@ -1,11 +1,16 @@
-import { BASE_ENDPOINT, TRADE_ROUTER } from "src/shared/constants";
-import { GetLiquiditySourcesParams } from "src/shared/types/api/params/trade";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  TRADE_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetLiquiditySourcesParams } from "../../shared/types/params/trade";
+import { GetLiquiditySourcesResponse } from "../../shared/types/response/trade";
 
 export async function get_liquidity_sources({
   chainIndex,
   chainId,
-}: GetLiquiditySourcesParams) {
+}: GetLiquiditySourcesParams): Promise<GetLiquiditySourcesResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

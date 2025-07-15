@@ -1,12 +1,17 @@
-import { BALANCE_ROUTER, BASE_ENDPOINT } from "src/shared/constants";
-import { GetTotalTokenBalanceesParams } from "src/shared/types/api/params/balance";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BALANCE_ROUTER,
+  BASE_ENDPOINT,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetTotalTokenBalancesParams } from "../../shared/types/params/balance";
+import { GetTotalTokenBalancesResponse } from "../../shared/types/response/balance";
 
 export async function get_total_token_balances({
   address,
   chains,
   excludeRiskToken,
-}: GetTotalTokenBalanceesParams) {
+}: GetTotalTokenBalancesParams): Promise<GetTotalTokenBalancesResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

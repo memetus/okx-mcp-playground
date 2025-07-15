@@ -1,5 +1,9 @@
-import { BALANCE_ROUTER, BASE_ENDPOINT } from "src/shared/constants";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BALANCE_ROUTER,
+  BASE_ENDPOINT,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
 
 export async function get_supported_chain() {
   try {

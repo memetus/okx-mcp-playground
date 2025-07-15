@@ -1,13 +1,18 @@
-import { BASE_ENDPOINT, TRADE_ROUTER } from "src/shared/constants";
-import { GetTransactionStatusParams } from "src/shared/types/api/params/trade";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  TRADE_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetTransactionStatusParams } from "../../shared/types/params/trade";
+import { GetTransactionStatusResponse } from "../../shared/types/response/trade";
 
 export async function get_transaction_status({
   chainIndex,
   chainId,
   txHash,
   isFromMyProject,
-}: GetTransactionStatusParams) {
+}: GetTransactionStatusParams): Promise<GetTransactionStatusResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

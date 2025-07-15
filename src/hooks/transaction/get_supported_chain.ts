@@ -1,11 +1,15 @@
-import { BASE_ENDPOINT, GATEWAY_ROUTER } from "src/shared/constants";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  TRANSACTION_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
 
 export async function get_supported_chain() {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,
-      GATEWAY_ROUTER.GET_SUPPORTED_CHAIN
+      TRANSACTION_ROUTER.GET_SUPPORTED_CHAIN
     );
 
     const headers = generateHeaderKey();

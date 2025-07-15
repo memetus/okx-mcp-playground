@@ -1,6 +1,11 @@
-import { BASE_ENDPOINT, TRANSACTION_ROUTER } from "src/shared/constants";
-import { GetHitoryByAddressParams } from "src/shared/types/api/params/transaction";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  TRANSACTION_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetHitoryByAddressParams } from "../../shared/types/params/transaction";
+import { GetHistoryByAddressResponse } from "../../shared/types/response/transaction";
 
 export async function get_history_by_address({
   address,
@@ -10,7 +15,7 @@ export async function get_history_by_address({
   end,
   cursor,
   lmit,
-}: GetHitoryByAddressParams) {
+}: GetHitoryByAddressParams): Promise<GetHistoryByAddressResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

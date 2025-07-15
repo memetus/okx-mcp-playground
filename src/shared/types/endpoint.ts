@@ -1,6 +1,6 @@
 export type TradeRouterKeys =
   | "GET_SUPPORTED_CHAIN"
-  | "GET_ALL_TOKENS"
+  | "GET_TOKENS"
   | "GET_LIQUIDITY_SOURCES"
   | "APPROVE_TRANSACTIONS"
   | "GET_QUOTES"
@@ -16,7 +16,7 @@ export type GatewayRouterKeys =
   | "BRODCAST_TRANSACTIONS"
   | "GET_TRANSACTION_ORDER";
 
-export type MarketRouterKeys =
+export type MarketPriceRouterKeys =
   | "GET_SUPPORTED_CHAIN"
   | "GET_PRICE"
   | "GET_BATCH_TOKEN_PRICE"
@@ -24,7 +24,7 @@ export type MarketRouterKeys =
   | "GET_CANDLESTICKS"
   | "GET_CANDLESTICKS_HISTORY";
 
-export type IndexRouterKeys =
+export type IndexPriceRouterKeys =
   | "GET_SUPPORTED_CHAIN"
   | "GET_TOKEN_INDEX_PRICE"
   | "GET_HISTORICAL_INDEX_PRICE";

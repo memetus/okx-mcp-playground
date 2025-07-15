@@ -1,6 +1,11 @@
-import { BASE_ENDPOINT, GATEWAY_ROUTER } from "src/shared/constants";
-import { SimulateTransactionParams } from "src/shared/types/api/params/gateway";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  GATEWAY_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { SimulateTransactionParams } from "../../shared/types/params/gateway";
+import { SimulateTransactionsResponse } from "../../shared/types/response/gateway";
 
 export async function simulate_transactions({
   fromAddress,
@@ -10,18 +15,18 @@ export async function simulate_transactions({
   extJson,
   priorityFee,
   gasPrice,
-}: SimulateTransactionParams) {
+}: SimulateTransactionParams): Promise<SimulateTransactionsResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,
       GATEWAY_ROUTER.SIMULATE_TRANSACTIONS
     );
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify({
         fromAddress,
         toAddress,

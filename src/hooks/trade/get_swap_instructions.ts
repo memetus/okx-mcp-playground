@@ -1,6 +1,11 @@
-import { BASE_ENDPOINT, TRADE_ROUTER } from "src/shared/constants";
-import { GetSwapInstructionsParams } from "src/shared/types/api/params/trade";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  TRADE_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetSwapInstructionsParams } from "../../shared/types/params/trade";
+import { GetSwapInstructionsResponse } from "../../shared/types/response/trade";
 
 export async function get_swap_instructions({
   chainIndex,
@@ -22,7 +27,7 @@ export async function get_swap_instructions({
   priceImpactProtectionPercentage,
   computeUnitPrice,
   computeUnitLimit,
-}: GetSwapInstructionsParams) {
+}: GetSwapInstructionsParams): Promise<GetSwapInstructionsResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

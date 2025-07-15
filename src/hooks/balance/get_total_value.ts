@@ -1,13 +1,18 @@
-import { BALANCE_ROUTER, BASE_ENDPOINT } from "src/shared/constants";
-import { GetTotalValueParams } from "src/shared/types/api/params/balance";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BALANCE_ROUTER,
+  BASE_ENDPOINT,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetTotalValueParams } from "../../shared/types/params/balance";
+import { GetTotalValueResponse } from "../../shared/types/response/balance";
 
 export async function get_total_value({
   address,
   chains,
   assetType,
   excludeRiskToken,
-}: GetTotalValueParams) {
+}: GetTotalValueParams): Promise<GetTotalValueResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

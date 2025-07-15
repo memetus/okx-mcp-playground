@@ -1,6 +1,11 @@
-import { BASE_ENDPOINT, GATEWAY_ROUTER } from "src/shared/constants";
-import { GetGasLimitParams } from "src/shared/types/api/params/gateway";
-import { joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  GATEWAY_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetGasLimitParams } from "../../shared/types/params/gateway";
+import { GetGasLimitResponse } from "../../shared/types/response/gateway";
 
 export async function get_gas_limit({
   chainIndex,
@@ -8,15 +13,15 @@ export async function get_gas_limit({
   toAddress,
   txAmount,
   extJson,
-}: GetGasLimitParams) {
+}: GetGasLimitParams): Promise<GetGasLimitResponse> {
   try {
     const endpoint = joinEndpoint(BASE_ENDPOINT, GATEWAY_ROUTER.GET_GAS_LIMIT);
 
+    const headers = generateHeaderKey();
+
     const response = await fetch(endpoint, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify({
         chainIndex,
         fromAddress,

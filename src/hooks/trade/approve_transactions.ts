@@ -1,13 +1,18 @@
-import { BASE_ENDPOINT, TRADE_ROUTER } from "src/shared/constants";
-import { ApproveTransactionsParams } from "src/shared/types/api/params/trade";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BASE_ENDPOINT,
+  TRADE_ROUTER,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { ApproveTransactionsParams } from "../../shared/types/params/trade";
+import { ApproveTransactionsResponse } from "../../shared/types/response/trade";
 
 export async function approve_transactions({
   chainIndex,
   chainId,
   tokenContractAddress,
   approveAmount,
-}: ApproveTransactionsParams) {
+}: ApproveTransactionsParams): Promise<ApproveTransactionsResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

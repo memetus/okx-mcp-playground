@@ -1,6 +1,11 @@
-import { BALANCE_ROUTER, BASE_ENDPOINT } from "src/shared/constants";
-import { GetSpecificTokenBalanceParams } from "src/shared/types/api/params/balance";
-import { generateHeaderKey, joinEndpoint } from "src/shared/utils/endpoint";
+import {
+  BALANCE_ROUTER,
+  BASE_ENDPOINT,
+  generateHeaderKey,
+  joinEndpoint,
+} from "../../shared";
+import { GetSpecificTokenBalanceParams } from "../../shared/types/params/balance";
+import { GetSpecificTokenBalanceResponse } from "../../shared/types/response/balance";
 
 export async function get_specific_token_balance({
   chainIndex,
@@ -8,7 +13,7 @@ export async function get_specific_token_balance({
   address,
   tokenContractAddresses,
   excludeRiskToken,
-}: GetSpecificTokenBalanceParams) {
+}: GetSpecificTokenBalanceParams): Promise<GetSpecificTokenBalanceResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,

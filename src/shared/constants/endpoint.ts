@@ -1,8 +1,8 @@
 import {
   BalanceRouterKeys,
   GatewayRouterKeys,
-  IndexRouterKeys,
-  MarketRouterKeys,
+  IndexPriceRouterKeys,
+  MarketPriceRouterKeys,
   TradeRouterKeys,
   TransactionRouterKeys,
 } from "../types/endpoint";
@@ -11,7 +11,7 @@ export const BASE_ENDPOINT: string = "https://web3.okx.com";
 
 export const TRADE_ROUTER: Record<TradeRouterKeys, string> = {
   GET_SUPPORTED_CHAIN: "/api/v5/dex/aggregator/supported/chain",
-  GET_ALL_TOKENS: "/api/v5/dex/aggregator/all-tokens",
+  GET_TOKENS: "/api/v5/dex/aggregator/all-tokens",
   GET_LIQUIDITY_SOURCES: "/api/v5/dex/aggregator/get-liquidity",
   APPROVE_TRANSACTIONS: "/api/v5/dex/aggregator/approve-transaction",
   GET_QUOTES: "/api/v5/dex/aggregator/quote",
@@ -29,7 +29,7 @@ export const GATEWAY_ROUTER: Record<GatewayRouterKeys, string> = {
   GET_TRANSACTION_ORDER: "/api/v5/dex/post-transaction/orders",
 };
 
-export const MARKET_ROUTER: Record<MarketRouterKeys, string> = {
+export const MARKET_PRICE_ROUTER: Record<MarketPriceRouterKeys, string> = {
   GET_SUPPORTED_CHAIN: "/api/v5/dex/market/supported/chain",
   GET_PRICE: "/api/v5/dex/market/price",
   GET_BATCH_TOKEN_PRICE: "api/v5/dex/market/price-info",
@@ -38,7 +38,7 @@ export const MARKET_ROUTER: Record<MarketRouterKeys, string> = {
   GET_CANDLESTICKS_HISTORY: "/api/v5/dex/market/historical-candles",
 };
 
-export const INDEX_ROUTER: Record<IndexRouterKeys, string> = {
+export const INDEX_PRICE_ROUTER: Record<IndexPriceRouterKeys, string> = {
   GET_SUPPORTED_CHAIN: "/api/v5/dex/balance/supported/chain",
   GET_TOKEN_INDEX_PRICE: "/api/v5/dex/index/current-price",
   GET_HISTORICAL_INDEX_PRICE: "/api/v5/dex/index/historical-price",
