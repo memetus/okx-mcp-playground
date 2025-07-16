@@ -30,15 +30,12 @@
     "content-type": "^1.0.5",
     "dotenv": "^17.2.0",
     "envalid": "^8.0.0",
-    "express": "^5.1.0",
-    "helmet": "^8.1.0",
     "joi": "^17.13.3",
     "raw-body": "^3.0.0",
     "redis": "^5.6.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/express": "^5.0.3",
     "@types/node": "^24.0.13",
     "jest": "^29.7.0",
     "ts-node": "^10.9.2",
