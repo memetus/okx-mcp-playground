@@ -5,7 +5,7 @@ import {
   joinEndpoint,
 } from "../../shared";
 import { GetHistoricalIndexPriceParams } from "../../shared/types/params/indexPrice";
-import { GetHistorialIndexPriceResponse } from "../../shared/types/response/indexPrice";
+import { GetHistoricalIndexPriceResponse } from "../../shared/types/response/indexPrice";
 
 export async function get_historical_index_price({
   chainIndex,
@@ -15,7 +15,7 @@ export async function get_historical_index_price({
   begin,
   end,
   period,
-}: GetHistoricalIndexPriceParams): Promise<GetHistorialIndexPriceResponse> {
+}: GetHistoricalIndexPriceParams): Promise<GetHistoricalIndexPriceResponse> {
   try {
     const endpoint = joinEndpoint(
       BASE_ENDPOINT,
