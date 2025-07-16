@@ -1,16 +1,23 @@
 {
   "name": "okx-mcp-playground",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "vitest",
     "dev": "vercel dev",
-    "build": "tsc"
+    "build": "tsc && chmod 755 dist/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/memetus/okx-mcp-playground.git"
   },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "okx-mcp-playground": "./dist/index.js"
+  },
+  "module": "./src/index.ts",
   "keywords": [],
   "author": "",
   "license": "ISC",
