@@ -31,9 +31,9 @@ startCommand:
         "dist/index.js"
       ],
       "env": {
-        "OKX_API_KEY": config.OKX_API_KEY
-        "OKX_API_SECRET": config.OKX_API_SECRET
-        "OKX_PASSPHRASE": config.OKX_PASSPHRASE
-        "OKX_PROJECT_ID": config.OKX_PROJECT_ID
+        "OKX_API_KEY": config.OKX_API_KEY,
+        "OKX_API_SECRET": config.OKX_API_SECRET,
+        "OKX_PASSPHRASE": config.OKX_PASSPHRASE,
+        "OKX_PROJECT_ID": config.OKX_PROJECT_ID,
       }
     })
