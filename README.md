@@ -33,7 +33,7 @@ The MCP server exposes the following tools to Claude:
 - `get_supported_chain`: Get the list of supported chains for the market.
 - `get_trades`: Retrieve the recent transactions of a token.
 - `get_batch_token_price`: Retrieve the latest price for multiple tokens.
-- `get_candlestics_history`: Retrieve historical candlestick charts.
+- `get_candlesticks_history`: Retrieve historical candlestick charts.
 - `get_candlesticks`: Retrieve the candlestick charts.
 - `get_price`: Retrieve the latest price of a token.
 

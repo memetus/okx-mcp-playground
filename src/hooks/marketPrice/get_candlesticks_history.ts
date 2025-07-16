@@ -7,7 +7,7 @@ import {
 import { GetCandlesticksHistoryParams } from "../../shared/types/params/marketPrice";
 import { GetCandlesticksHistoryResponse } from "../../shared/types/response/marketPrice";
 
-export async function get_candlestics_history({
+export async function get_candlesticks_history({
   chainIndex,
   tokenContractAddress,
   after,
@@ -42,7 +42,7 @@ export async function get_candlestics_history({
 
     return await response.json();
   } catch (error) {
-    console.error("Error in get_candlestics_history:", error);
+    console.error("Error in get_candlesticks_history:", error);
     throw new Error("Failed to retrieve candlestick history");
   }
 }
