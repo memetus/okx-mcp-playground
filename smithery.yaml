@@ -1,0 +1,39 @@
+# Smithery.ai configuration
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      OKX_API_KEY:
+        type: string
+        description: The API key from the OKX
+      OKX_API_SECRET:
+        type: string
+        description: The API secret from the OKX
+      OKX_PASSPHRASE:
+        type: string
+        description: The Passphrase registered from OKX
+      OKX_PROJECT_ID:
+        type: string
+        description: The Project ID registered from OKX
+    required:
+      - OKX_API_KEY
+      - OKX_API_SECRET
+      - OKX_PASSPHRASE
+      - OKX_PROJECT_ID
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({
+      "command": "node",
+      "args": [
+        "dist/index.js"
+      ],
+      "env": {
+        "OKX_API_KEY": config.OKX_API_KEY
+        "OKX_API_SECRET": config.OKX_API_SECRET
+        "OKX_PASSPHRASE": config.OKX_PASSPHRASE
+        "OKX_PROJECT_ID": config.OKX_PROJECT_ID
+      }
+    })
